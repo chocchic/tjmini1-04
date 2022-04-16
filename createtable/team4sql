@@ -1,0 +1,44 @@
+-- 쿠폰 테이블
+create table coupon(
+    cpnum   number primary key,
+    cpname  varchar2(50) not null,
+    cpwon   number not null,
+    mnum    number not null
+);
+
+-- 주문 테이블
+create table oder(
+    onum number primary key,
+    mnum number not null,
+    dpnum number not null,
+    daddr varchar2(50) not null,
+    recname varchar2(50) not null,
+    rectel varchar2(50) not null,
+    ofee number default 0,
+    ototal number not null,
+    cpwon number default 0,
+    classper number default 0,
+    is_sub varchar2(50) default 'N',
+    otype varchar2(50),
+    CONSTRAINT mnum_fk FOREIGN KEY(mnum) REFERENCES member(mnum)
+);
+
+-- 주문 상세 테이블
+CREATE TABLE order_detail(
+    odnum number primary key,
+    mnum number not null,
+    pcount number not null,
+    onum number not null,
+    pnum number not null,
+    odrice number not null,
+    CONSTRAINT omnum_fk FOREIGN KEY(mnum) REFERENCES member(mnum),
+    CONSTRAINT oonum_fk FOREIGN KEY(onum) REFERENCES oder(onum),
+    CONSTRAINT opnum_fk FOREIGN KEY(pnum) REFERENCES product(pnum)
+);
+
+-- odnum_seq 시퀀스
+create sequence odnum_seq nocache;
+-- onum_seq 시퀀스
+create sequence onum_seq nocache;
+
+commit;
