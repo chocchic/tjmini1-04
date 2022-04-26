@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+
+	<!-- mapper.xml에서 resultType에 작성하는 vo같은 클래스 이름이 길다.
+		별칭달아서 짧게 써보자 
+	 -->
+	<typeAliases>
+		<typeAlias type="com.shop.domain.ShopVO" alias="shopVO"/>
+		<typeAlias type="com.shop.domain.ReviewVO" alias="reviewVO"/>
+		<typeAlias type="com.shop.domain.QnaVO" alias="qnaVO"/>
+		<typeAlias type="com.shop.domain.CartVO" alias="cartVO"/>
+		<typeAlias type="com.shop.domain.MemberCVO" alias="mcVO"/>
+		<typeAlias type="com.shop.domain.CouponVO" alias="couponVO"/>
+		<typeAlias type="com.shop.domain.AddressVO" alias="addrVO"/>
+		<typeAlias type="com.shop.domain.CartnProdVO" alias="cpVO"/>
+	</typeAliases>
+
+	
+
+
+
+
+
+
+
+
+</configuration>
